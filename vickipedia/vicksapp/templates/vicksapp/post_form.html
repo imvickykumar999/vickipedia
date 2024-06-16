@@ -1,0 +1,28 @@
+<!-- vicksapp/templates/vicksapp/post_form.html -->
+{% extends 'vicksapp/base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Edit Post - {{ form.instance.title }}
+    {% else %}
+        Create Post - Vickipedia
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>
+        {% if form.instance.pk %}
+            Edit Post
+        {% else %}
+            Create New Post
+        {% endif %}
+    </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div class="text-right"> <!-- Use Bootstrap class to align content to the right -->
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+{% endblock %}
