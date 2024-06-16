@@ -4,7 +4,8 @@
 {% block title %}Post Detail - {{ post.title }}{% endblock %}
 
 {% block content %}
-    <h1>{{ post.title }}</h1>
+    <img src="{{ post.title }}" alt="Post Image">
+    <br>
     <p>{{ post.content | linebreaks }}</p>
 
     <div class="text-right"> <!-- Use Bootstrap class to align content to the right -->
@@ -16,5 +17,5 @@
         </form>
     </div>
         
-    <a href="{% url 'post_list' %}" class="btn btn-sm btn-secondary">Back to Posts</a>
+    <a href="{% url 'post_list' %}" class="btn btn-secondary">Back to Posts</a>
     {% endblock %}
