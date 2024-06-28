@@ -4,9 +4,9 @@
 {% block title %}Post Detail - {{ post.title }}{% endblock %}
 
 {% block content %}
-    <img src="{{ post.title }}" alt="Post Image">
+    <img width="40%" src="{{ post.title }}" alt="Post Image">
     <br>
-    <p>{{ post.content | linebreaks }}</p>
+    <p>{{ post.content | safe }}</p>
 
     <div class="text-right"> <!-- Use Bootstrap class to align content to the right -->
         <a href="{% url 'post_update' post.pk %}" class="btn btn-sm btn-primary mr-2">Edit</a>
@@ -16,6 +16,4 @@
             <button type="submit" class="btn btn-sm btn-danger">Delete</button>
         </form>
     </div>
-        
-    <a href="{% url 'post_list' %}" class="btn btn-secondary">Back to Posts</a>
-    {% endblock %}
+{% endblock %}
